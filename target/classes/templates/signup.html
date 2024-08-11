@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/signup.css}">
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="registration-container">
+    <h2>Register</h2>
+    <form action="/signup" th:object="${user}" method="post">
+
+            <input type="text" placeholder="First Name" th:field="*{firstName}" required>
+
+            <input type="text" placeholder="Last Name" th:field="*{lastName}" required>
+
+            <input type="date" placeholder="Date of Birth" th:field="*{DOB}" required>
+
+        <!-- <label for="gender"><b>Gender:</b></label> -->
+        <label for="gender"></label>
+        <select id="gender" name="gender" th:field="*{gender}" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+            <input type="tel" placeholder="Phone Number" th:field="*{phoneNumber}" required>
+
+            <input type="email" placeholder="Email Address" th:field="*{email}" required>
+
+            <input type="text" placeholder="Aadhaar Card Number" th:field="*{aadhaarCard}" required>
+
+        <input type="text" placeholder="Username" th:field="*{userName}" required>
+        <span th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></span>
+
+            <input type="password" placeholder="Password" th:field="*{userPassword}" required>
+
+        <button type="submit"><b>Register</b> </button>
+    </form>
+        <h3>Already have account ? <a th:href="@{/signin}">Log in here</a>
+        </h3>
+
+</div>
+</body>
+</html>

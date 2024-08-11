@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Train Search</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Signup</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="para">
+    <h1>Welcome to Indian Railway!!</h1>
+</div>
+
+<div class="form-container">
+    <form class="search-form"  th:action="@{/search}" method="post" >
+        <h1>Search Your Train Here !</h1>
+
+        <div class="input-container">
+            <div class="search-container my-3">
+
+            <label for="search-input">From:</label>
+            <input onkeyup="search()" type="text" id="search-input" class="form-control" placeholder="From station" required >
+                <div class="search-result" id="search-result">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <label for="search-input">To:</label>
+            <input onkeyup="search2()" type="text" id="search-input2" class="form-control" placeholder="To station" required >
+            <div class="search-result" id="search-result2">
+
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+</div>
+<script th:src="@{/js/home.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
