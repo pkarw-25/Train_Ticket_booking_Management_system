@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IRCTC Welcome Page</title>
+</head>
+<body>
+<h1 th:text="${welcomeMessage}"></h1>
+
+<form th:action="@{/search}" method="post">
+    <!-- Date input and other form elements for train search -->
+    <input type="text" name="date" placeholder="Date">
+    <input type="text" name="sourceStation" placeholder="Source Station">
+    <input type="text" name="destinationStation" placeholder="Destination Station">
+    <button type="submit">Search</button>
+</form>
+
+<!-- Display user profile information here -->
+
+<h2>Available Stations</h2>
+<ul>
+    <li th:each="station : ${stations}">
+        <span th:text="${station.stationCode}"></span> - <span th:text="${station.stationName}"></span>
+    </li>
+</ul>
+</body>
+</html>
